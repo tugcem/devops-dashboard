@@ -1,5 +1,5 @@
 import express from 'express';
-import { WebSocketServer } from 'ws';
+import { checkEndpoints } from './endpoints';
 import { createWebSocketServer } from './websocket';
 
 export const startServer = (port: number) => {
@@ -10,5 +10,6 @@ export const startServer = (port: number) => {
 
     const wss = createWebSocketServer(server);
     setInterval(() => {
+        checkEndpoints(wss);
     }, 5000); // Check every 5 seconds
 };
