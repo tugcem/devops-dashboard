@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { WebSocketProvider } from './context/WebSocketContext';
+import StatusDisplay from './components/StatusDisplay';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <WebSocketProvider>
+            <div className="App">
+                <h1>DevOps Status Monitor</h1>
+                <StatusDisplay />
+            </div>
+        </WebSocketProvider>
+    );
+};
 
 export default App;
