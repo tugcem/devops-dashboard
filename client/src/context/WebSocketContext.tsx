@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-const wssUrl = process.env.WSS_URL || 'ws://localhost:8000';
+const wssUrl = process.env.REACT_APP_WSS_URL || 'ws://localhost:8000';
 const WebSocketContext = createContext<any>(null);
 
 interface Props {
