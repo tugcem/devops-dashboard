@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 
+const wssUrl = process.env.WSS_URL || 'ws://localhost:8000';
 const WebSocketContext = createContext<any>(null);
 
 interface Props {
@@ -10,7 +11,7 @@ export const WebSocketProvider: React.FC<Props> = ({ children }) => {
     const [data, setData] = useState<any[]>([]);
 
     useEffect(() => {
-        const ws = new WebSocket('ws://localhost:8000'); // Adjust port if needed
+        const ws = new WebSocket(wssUrl); 
 
         ws.onmessage = (event) => {
             const messageData = JSON.parse(event.data);
