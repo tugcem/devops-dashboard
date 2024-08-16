@@ -4,7 +4,7 @@
 
 ### Running server
 
-``` cd server && npm start```
+``` cd server &&  npx tsc && npm start```
 
 ### Running client
 
